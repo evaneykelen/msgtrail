@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title><%= [cfg.head_matter.blog_title, cfg.head_matter.blog_sub_title, article[:title]].compact.join(' - ') %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" media="all" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="alternate" type="application/rss+xml" href="/feed/index.xml" title="<%= [cfg.head_matter.blog_title, cfg.head_matter.blog_sub_title].compact.join(' - ') %>">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:700%7CVollkorn:400,700" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Vollkorn', serif !important;
+        font-size: 21px !important;
+      }
+      body a { color: black !important; }
+      body a:hover {
+        background-color: black !important;
+        color: white !important;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Fira Sans', sans-serif !important;
+        font-weight: 700 !important;
+      }
+      img {
+        display: inline-block;
+        height: auto;
+        max-width: 100%;
+      }
+      blockquote {
+        border-left: 2px solid #ccc;
+        padding-left: 10px;
+      }
+      .card { border: 1px solid #1ca1f2 !important; }
+      .article-link a {
+        color: blue !important;
+        text-decoration: underline !important;
+      }
+      service-logo {
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: inline-block;
+        height: 14.29px;
+        width: 17.58px;
+        vertical-align: -2px;
+      }
+      .twitter {
+        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22123%22%20height%3D%22100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M38.697%20100c46.434%200%2071.827-38.47%2071.827-71.826%200-1.093-.023-2.18-.073-3.264a51.35%2051.35%200%200%200%2012.594-13.07%2050.37%2050.37%200%200%201-14.497%203.974c5.211-3.125%209.214-8.07%2011.1-13.965a50.589%2050.589%200%200%201-16.029%206.128A25.22%2025.22%200%200%200%2085.192%200C71.25%200%2059.944%2011.306%2059.944%2025.243c0%201.982.222%203.907.653%205.756C39.618%2029.944%2021.014%2019.897%208.565%204.624a25.153%2025.153%200%200%200-3.42%2012.689c0%208.757%204.458%2016.49%2011.234%2021.012a25.047%2025.047%200%200%201-11.433-3.158c-.006.106-.006.21-.006.323%200%2012.227%208.703%2022.434%2020.253%2024.748-2.12.578-4.351.888-6.655.888a25.32%2025.32%200%200%201-4.745-.455C17.006%2070.7%2026.326%2078%2037.376%2078.205A50.653%2050.653%200%200%201%206.023%2089.012c-2.037%200-4.047-.117-6.023-.35C11.173%2095.822%2024.438%20100%2038.697%20100%22%20fill%3D%22%23CCC%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+      }
+      .github {
+        background-image: url('data:image/svg+xml,%3Csvg%20width%3D%22103%22%20height%3D%22100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M51.26%200C22.956%200%200%2022.952%200%2051.267c0%2022.65%2014.688%2041.863%2035.06%2048.642%202.564.472%203.499-1.11%203.499-2.47%200-1.215-.044-4.441-.07-8.718-14.26%203.097-17.268-6.873-17.268-6.873-2.332-5.923-5.693-7.5-5.693-7.5-4.655-3.179.352-3.116.352-3.116%205.146.362%207.853%205.284%207.853%205.284%204.572%207.834%2012%205.57%2014.92%204.259.466-3.311%201.79-5.57%203.254-6.852-11.383-1.293-23.351-5.693-23.351-25.337%200-5.596%201.998-10.175%205.277-13.757-.528-1.296-2.288-6.511.504-13.567%200%200%204.302-1.378%2014.096%205.256%204.088-1.14%208.475-1.706%2012.834-1.728%204.356.022%208.74.589%2012.834%201.728%209.788-6.634%2014.083-5.256%2014.083-5.256%202.798%207.056%201.039%2012.27.513%2013.567%203.286%203.582%205.269%208.161%205.269%2013.757%200%2019.694-11.988%2024.028-23.406%2025.296%201.838%201.583%203.478%204.712%203.478%209.495%200%206.852-.063%2012.381-.063%2014.062%200%201.372.925%202.967%203.525%202.467%2020.356-6.795%2035.03-25.995%2035.03-48.64C102.53%2022.953%2079.576%200%2051.26%200%22%20fill%3D%22%23CCC%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mb-5">
+      <div class="row mt-4 mb-5">
+        <div class="col-12">
+          <div class="d-md-flex">
+            <div class="mr-auto">
+              <div class="mx-3"><a href="/"><%= cfg.head_matter.blog_title %></a></div>
+            </div>
+            <div><a class="mx-3" href="/">Home</a></div>
+            <div><a class="mx-3" href="/archive/">Archive</a></div>
+            <div><a class="mx-3" href="<%= cfg.domain_matter.search_url %>" target="_blank" rel="noopener noreferrer">Search</a></div>
+            <div><a class="mx-3" href="/feed/index.xml">Feed</a></div>
+            <div><a class="mx-3" href="<%= cfg.domain_matter.about_url %>" target="_blank" rel="noopener noreferrer">About</a></div>
+          </div>
+        </div>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

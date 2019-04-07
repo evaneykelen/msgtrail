@@ -1,0 +1,24 @@
+{
+  "domain_matter": {
+    "site_url": "https://www.msgtrail.com/",
+    "feed_url": "https://www.msgtrail.com/feed/index.xml",
+    "permalink_url": "https://www.msgtrail.com/articles/%s",
+    "search_url": "https://www.google.com?q=site%3Awww.msgtrail.com%20%7Bsearch%20phrase%7D",
+    "about_url": "https://www.bitgain.com/"
+  },
+  "file_matter": {
+    "blog_manifest_file": "blog.json",
+    "site_manifest_file": "site.json",
+    "article_directory": "articles",
+    "blog_directory": "blog",
+    "theme_directory": "theme"
+  },
+  "head_matter": {
+    "blog_title": "MsgTrail",
+    "blog_sub_title": "A blog by Erik van Eykelen",
+    "language": "en-us"
+  },
+  "time_matter": {
+    "utc_offset": "+02:00"
+  }
+}

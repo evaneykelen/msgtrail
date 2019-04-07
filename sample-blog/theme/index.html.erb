@@ -1,0 +1,14 @@
+<div class="row my-2">
+  <div class="col-12">
+    <% articles.each do |article| %>
+      <% break if article[:archived] %>
+      <div class="px-3 py-5">
+        <%= render_article('article', { article: article }) %>
+      </div>
+      <hr class="pb-3">
+    <% end %>
+    <div class="px-3">
+      &rarr; <a href="/archive">See archive for older posts</a>
+    </div>
+  </div>
+</div>

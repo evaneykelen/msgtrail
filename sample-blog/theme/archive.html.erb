@@ -1,0 +1,20 @@
+<div class="row my-2">
+  <div class="col-12">
+    <% articles.each do |article| %>
+      <div class="px-3 mb-3">
+        <div class="form-row">
+          <div class="col-12 col-sm-3 col-md-2">
+            <a class="small text-muted" href="/articles/<%= article[:slug] %>">
+              <%= article[:date] %>
+            </a>
+          </div>
+          <div class="col-12 col-sm-9 col-md-10">
+            <a href="/articles/<%= article[:slug] %>">
+              <%= article[:title] %>
+            </a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

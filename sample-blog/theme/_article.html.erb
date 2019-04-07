@@ -1,0 +1,38 @@
+<p class="small text-muted">
+  <%= variables[:article][:date] %> <%= variables[:article][:time] %>
+</p>
+
+<h3 class="mb-3">
+  <a href="/articles/<%= variables[:article][:slug] %>"><%= variables[:article][:title] %></a>
+</h3>
+
+<% variables[:article][:bodies].each do |body| %>
+
+  <div class="article-link">
+    <% if 'tweet' == body[:type] %>
+      <div class="card mb-2">
+        <div class="card-body pb-0">
+          <%= markdown.render(body[:body]) %>
+        </div>
+      </div>
+    <% else %>
+      <%= markdown.render(body[:body]) %>
+    <% end %>
+  </div>
+
+  <% if body[:type] =~ /gist|tweet/ %>
+    <p class="small text-muted">
+      <% if 'gist' == body[:type] %>
+        <service-logo class="github"></service-logo>
+      <% elsif 'tweet' == body[:type] %>
+        <service-logo class="twitter"></service-logo>
+      <% end %>
+      <a class="text-muted" href="<%= body[:source] %>">Source</a>
+    </p>
+  <% end %>
+
+<% end %>
+
+<p class="small text-muted pa-4">
+  &sect; <a class="text-muted" href="/articles/<%= variables[:article][:slug] %>">Permalink</a>
+</p>

@@ -1,0 +1,29 @@
+[
+  {
+    "layout": "layout.html.erb",
+    "template": "index.html.erb",
+    "output_file": "index.html",
+    "iterator_subject": false
+  },
+  {
+    "layout": "layout.html.erb",
+    "template": "archive.html.erb",
+    "output_path": "archive",
+    "output_file": "index.html",
+    "iterator_subject": false
+  },
+  {
+    "layout": "layout.html.erb",
+    "template": "article.html.erb",
+    "output_path": "articles/%s",
+    "output_file": "index.html",
+    "iterator_subject": true
+  },
+  {
+    "layout": "layout.xml.erb",
+    "template": "feed.xml.erb",
+    "output_path": "feed",
+    "output_file": "index.xml",
+    "iterator_subject": false
+  }
+]

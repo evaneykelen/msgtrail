@@ -1,0 +1,15 @@
+<% articles.each do |article| %>
+  <item>
+    <title><%= article[:title] %></title>
+    <link><%= cfg.domain_matter.permalink_url % article[:slug] %></link>
+    <description>
+      <![CDATA[
+        <% article[:bodies].each do |body| %>
+          <%= markdown.render(body[:body]) %>
+        <% end %>
+      ]]>
+    </description>
+    <pubDate><%= rfc2822_time(article[:date], article[:time]) %></pubDate>
+    <guid><%= cfg.domain_matter.permalink_url % article[:slug] %></guid>
+  </item>
+<% end %>
