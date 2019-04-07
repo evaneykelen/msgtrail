@@ -55,7 +55,7 @@ module Msgtrail
     def rfc2822_time(date, time)
       ymd = date.split(/\D/).map(&:to_i)
       hm = time.split(/\D/).map(&:to_i)
-      Time.new(ymd[0].to_i, ymd[1].to_i, ymd[2].to_i, hm[0].to_i, hm[1].to_i)
+      Time.new(ymd[0], ymd[1], ymd[2], hm[0], hm[1])
           .getlocal(cfg.time_matter.utc_offset)
           .rfc2822
     end
