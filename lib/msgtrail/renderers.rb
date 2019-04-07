@@ -6,7 +6,7 @@ module Msgtrail
 
     def initialize(layout_filepath, template_filepath, config)
       self.article = {}
-      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
       self.config = config
       begin
         self.layout = File.read(layout_filepath)
@@ -65,7 +65,7 @@ module Msgtrail
         puts("Can't find '#{partial_filepath}'")
         exit(2)
       end
-      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
       self.variables = variables
     end
 
