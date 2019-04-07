@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'msgtrail/publish'
+Dotenv.load
+Msgtrail::Publish::to_file_system(Dir.getwd, ARGV[0])
