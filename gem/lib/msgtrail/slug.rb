@@ -42,7 +42,7 @@ module Msgtrail
       # - replace invalid characters
       # - replace leading dashes
       # - replace trailing dashes
-      # - pad string with dashes if shorter than 3 characters
+      # - pad string with zeros if shorter than 3 characters
       #
       string.downcase
             .gsub(/\.*/, '')
@@ -50,7 +50,7 @@ module Msgtrail
             .gsub(/[^a-z,0-9,-]/, '-')
             .gsub(/\A-*/, '')
             .gsub(/-*\Z/, '')
-            .ljust(3, '-')
+            .ljust(3, '0')
     end
 
   end
