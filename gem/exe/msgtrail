@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 require 'msgtrail/publish'
 Dotenv.load
-Msgtrail::Publish::to_file_system(Dir.getwd, ARGV[0])
+if ARGV[0]
+  Msgtrail::Publish::to_file_system(Dir.getwd, ARGV[0])
+else
+  puts "#{$PROGRAM_NAME} version #{Msgtrail::VERSION}"
+  puts "Usage: #{$PROGRAM_NAME} {theme-directory-name}"
+end
