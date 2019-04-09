@@ -235,7 +235,27 @@ Unlike with Ruby on Rails the `.html.erb` and `.xml.erb` file extensions used by
 
 As mentioned before, you'll also come across a variable called `cfg`. See above for an explanation.
 
-### TODO
+### Step-by-step instructions
 
-- [ ] provide step-by-step command line input/output examples
-- [ ] publish msgtrail.com to show how basic theme looks
+- Install the MsgTrail gem (see above).
+- Download the `sample-blog` archive.
+- Unzip the archive to a directory called `sample-blog`.
+- Enter `msgtrail sample-blog/`. The output will be something like:
+
+```
+Deleted '/Users/.../sample-blog/blog'
+Created '/Users/.../sample-blog/blog'
+Created '/Users/.../sample-blog/blog/index.html'
+Created '/Users/.../sample-blog/blog/archive/index.html'
+Created '/Users/.../sample-blog/blog/articles/20190102-2355-first-post/index.html'
+Created '/Users/.../sample-blog/blog/articles/20190407-2134-markdown-example/index.html'
+Created '/Users/.../sample-blog/blog/articles/20190406-1316-writing-a-programmer-oriented-blog-engine/index.html'
+Created '/Users/.../sample-blog/blog/feed/index.xml'
+```
+
+-  If you open the `blog/index.html` file in your web browser you should see the blog home page.
+
+### Feedback, comments, bugs, or praise?
+
+- Create a GitHub issue if you run into issues or bugs.
+- Ping me on Twitter: [@hackteck](https://twitter.com/hackteck/)
