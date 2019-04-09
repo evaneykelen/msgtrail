@@ -4,6 +4,6 @@ Dotenv.load
 if ARGV[0]
   Msgtrail::Publish::to_file_system(Dir.getwd, ARGV[0])
 else
-  puts "#{$PROGRAM_NAME} version #{Msgtrail::VERSION}"
+  puts "Version: #{Msgtrail::VERSION}"
   puts "Usage: #{$PROGRAM_NAME} {theme-directory-name}"
 end
