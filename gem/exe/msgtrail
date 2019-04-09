@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require 'msgtrail/publish'
+require 'msgtrail/version'
 Dotenv.load
 if ARGV[0]
   Msgtrail::Publish::to_file_system(Dir.getwd, ARGV[0])
