@@ -238,7 +238,7 @@ As mentioned before, you'll also come across a variable called `cfg`. See above 
 ### Step-by-step instructions
 
 - Install the MsgTrail gem (see above).
-- Download the `sample-blog` archive.
+- [Download](https://github.com/evaneykelen/msgtrail/blob/master/sample-blog.zip) the sample-blog archive.
 - Unzip the archive to a directory called `sample-blog`.
 - Enter `msgtrail sample-blog/`. The output will be something like:
 
