@@ -38,9 +38,9 @@ module Msgtrail
       ERB.new(template).result(binding)
     end
 
-    def render_article(partial_filename, variables)
+    def render_partial(partial_filename, variables)
       partial_filepath = File.join(self.theme_directory, "_#{partial_filename}.html.erb")
-      ArticlePartialRenderer.new(partial_filepath, variables).render
+      PartialRenderer.new(partial_filepath, variables).render
     end
 
     # Offer shortcut `cfg` to `settings.config` for use inside ERBs
@@ -62,7 +62,7 @@ module Msgtrail
 
   end
 
-  class ArticlePartialRenderer
+  class PartialRenderer
 
     attr_accessor :markdown, :partial, :variables
 

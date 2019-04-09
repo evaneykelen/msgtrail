@@ -3,7 +3,7 @@
     <% articles.each do |article| %>
       <% break if article[:archived] %>
       <div class="px-3 py-5">
-        <%= render_article('article', { article: article }) %>
+        <%= render_partial('article', { article: article, fuck: "me" }) %>
       </div>
       <hr class="pb-3">
     <% end %>
