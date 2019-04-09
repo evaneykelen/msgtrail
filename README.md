@@ -126,7 +126,7 @@ Or you can use one or more references to tweet IDs:
 ]
 ```
 
-## config.json
+### config.json
 
 The `msgtrail` command reads its configuration settings from `config.json`:
 
@@ -159,7 +159,7 @@ The `msgtrail` command reads its configuration settings from `config.json`:
 
 All configuration settings are available through a global variable called `cfg` in the ERB templates. For instance the `site_url` setting can be accessed using `<%= cfg.domain_matter.site_url %>`.
 
-## site.json
+### site.json
 
 The `msgtrail` command uses `site.json` to generate HTML files by combining layouts, templates, Markdown articles, gists, and tweets and writing the result to an output directory.
 
@@ -197,8 +197,45 @@ As you can see from `site.json` it is easy to map input (layout/template) to out
 ]
 ```
 
+### Theme
+
+MsgTrail ships with a basic theme. Feel free to adapt it to your own needs. 
+
+The theme consists of just 7 ERB files:
+
+- `_article.html.erb`
+- `archive.html.erb`
+- `article.html.erb`
+- `feed.xml.erb`
+- `index.html.erb`
+- `layout.html.erb`
+- `layout.xml.erb`
+
+Noteworthy:
+
+`_article.html.erb` is a "partial" (aka "include") which is called by `article.html.erb` and `index.html.erb` in order to DRY-up the code.
+
+The `_` underscore in front of the file name is a nod to Rails' partial naming convention.
+
+Inside `article.html.erb` and `index.html.erb` you'll see that it is easy to embed a partial:
+
+`<%= render_partial('article', { article: article }) %>`
+
+The `article` variable gets passed to the article partial and made available through a global `variables` hash. Inside `_article.html.erb` you'll see for instance:
+
+`<%= variables[:article][:date] %>`
+
+This line fetches the `:date` value from the `:article` hash. You may add additional variables to the `{ article: article }` hash e.g. `{ article: article, foo: 'bar' }`.
+
+The fact that the word `article` is used three times in `render_partial('article', { article: article })` is not a requirement. The following is also correct: `render_partial('alpha', { bravo: charlie })`, provided you rename the partial to `alpha` and rename the variables accordingly.
+
+The two layout files (`layout.html.erb` and `layout.xml.erb`) each contain `<%= yield %>`. The `yield` method is used by MsgTrail to "wrap" the contents of the layout file "around" e.g. `index.html.erb` or one of the other templates.
+
+Unlike with Ruby on Rails the `.html.erb` and `.xml.erb` file extensions used by the layouts and templates have no special meaning for MsgTrail. Instead, the file extensions in the final publication are defined by `site.json`.
+
+As mentioned before, you'll also come across a variable called `cfg`. See above for an explanation.
+
 ### TODO
 
-- [ ] explain layouts/templates
 - [ ] provide step-by-step command line input/output examples
 - [ ] publish msgtrail.com to show how basic theme looks
