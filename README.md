@@ -259,3 +259,14 @@ Created '/Users/.../sample-blog/blog/feed/index.xml'
 
 - Create a GitHub issue if you run into issues or bugs.
 - Ping me on Twitter: [@hackteck](https://twitter.com/hackteck/)
+
+### Similar projects
+
+- [Docusaurus](https://docusaurus.io/)
+- [Hexo](https://hexo.io/)
+- [Hugo](https://gohugo.io/)
+- [Jekyll](https://jekyllrb.com/)
+- [Middleman](https://middlemanapp.com/)
+- [Nanoc](https://nanoc.ws/)
+- [Octopress](http://octopress.org/)
+- [Pelican](https://blog.getpelican.com/)
