@@ -2,7 +2,7 @@
 
 **MsgTrail is a blog publication tool.**
 
-(TODO) It is used to manage and publish [this blog](https://www.msgtrail.com/).
+It is used to manage and publish [this blog](https://www.msgtrail.com/).
 
 ### Features
 
@@ -19,7 +19,7 @@
 
 ### Simplicity
 
-MsgTrail enables you to write, proofread, and publish your blog entirely from the command line. 
+MsgTrail enables you to write, proofread, and publish your blog entirely from the command line.
 
 Here is how creating and publishing a new blog article works:
 
@@ -199,7 +199,7 @@ As you can see from `site.json` it is easy to map input (layout/template) to out
 
 ### Theme
 
-MsgTrail ships with a basic theme. Feel free to adapt it to your own needs. 
+MsgTrail ships with a basic theme. Feel free to adapt it to your own needs.
 
 The theme consists of just 7 ERB files:
 
