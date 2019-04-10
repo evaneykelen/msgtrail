@@ -29,7 +29,7 @@ module Msgtrail
         FileUtils.remove_dir(directory)
         puts("Deleted '#{directory}'")
       rescue
-        puts("Can't find '#{directory}'")
+        # It is OK if this directory doesn't exist.
       end
       begin
         FileUtils.mkdir(directory)
