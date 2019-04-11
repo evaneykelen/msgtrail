@@ -1,5 +1,9 @@
 ### Changelog
 
+##### Version 0.7.0
+
+- Add access to `cfg` variable inside partials.
+
 ##### Version 0.6.0
 
 - Added changelog.
