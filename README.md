@@ -2,7 +2,7 @@
 
 **MsgTrail is a blog publication tool.**
 
-(TODO) It is used to manage and publish [this blog](https://www.msgtrail.com/).
+It is used to manage and publish [this blog](https://www.msgtrail.com/).
 
 ### Features
 
@@ -19,7 +19,7 @@
 
 ### Simplicity
 
-MsgTrail enables you to write, proofread, and publish your blog entirely from the command line. 
+MsgTrail enables you to write, proofread, and publish your blog entirely from the command line.
 
 Here is how creating and publishing a new blog article works:
 
@@ -199,7 +199,7 @@ As you can see from `site.json` it is easy to map input (layout/template) to out
 
 ### Theme
 
-MsgTrail ships with a basic theme. Feel free to adapt it to your own needs. 
+MsgTrail ships with a basic theme. Feel free to adapt it to your own needs.
 
 The theme consists of just 7 ERB files:
 
@@ -238,7 +238,7 @@ As mentioned before, you'll also come across a variable called `cfg`. See above 
 ### Step-by-step instructions
 
 - Install the MsgTrail gem (see above).
-- [Download](https://github.com/evaneykelen/msgtrail/blob/master/sample-blog.zip) the sample-blog archive.
+- [Download](https://github.com/evaneykelen/msgtrail/releases/tag/v1) the `sample-blog.zip` file.
 - Unzip the archive to a directory called `sample-blog`.
 - Enter `msgtrail sample-blog/`. The output will be something like:
 
@@ -259,3 +259,14 @@ Created '/Users/.../sample-blog/blog/feed/index.xml'
 
 - Create a GitHub issue if you run into issues or bugs.
 - Ping me on Twitter: [@hackteck](https://twitter.com/hackteck/)
+
+### Similar projects
+
+- [Docusaurus](https://docusaurus.io/)
+- [Hexo](https://hexo.io/)
+- [Hugo](https://gohugo.io/)
+- [Jekyll](https://jekyllrb.com/)
+- [Middleman](https://middlemanapp.com/)
+- [Nanoc](https://nanoc.ws/)
+- [Octopress](http://octopress.org/)
+- [Pelican](https://blog.getpelican.com/)
