@@ -6,8 +6,8 @@ module Msgtrail
 
     def initialize(layout_filepath, template_filepath, config)
       self.article = {}
-      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
       self.config = config
+      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
       begin
         self.layout = File.read(layout_filepath)
       rescue
@@ -40,7 +40,7 @@ module Msgtrail
 
     def render_partial(partial_filename, variables)
       partial_filepath = File.join(self.theme_directory, "_#{partial_filename}.html.erb")
-      PartialRenderer.new(partial_filepath, variables).render
+      PartialRenderer.new(partial_filepath, variables, self.config).render
     end
 
     # Offer shortcut `cfg` to `settings.config` for use inside ERBs
@@ -64,17 +64,26 @@ module Msgtrail
 
   class PartialRenderer
 
-    attr_accessor :markdown, :partial, :variables
+    attr_accessor :config, :markdown, :partial, :variables
 
-    def initialize(partial_filepath, variables)
+    def initialize(partial_filepath, variables, config)
       begin
         self.partial = File.read(partial_filepath)
       rescue
         puts("Can't find '#{partial_filepath}'")
         exit(2)
       end
+      self.config = config
       self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
       self.variables = variables
+    end
+
+    def method_missing(missing_method_name, *args, &block)
+      if 'cfg' == missing_method_name.to_s
+        self.config.settings
+      else
+        super
+      end
     end
 
     def render
