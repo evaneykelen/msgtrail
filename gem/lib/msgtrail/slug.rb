@@ -40,6 +40,7 @@ module Msgtrail
       # - remove periods
       # - truncate to 63 characters
       # - replace invalid characters
+      # - condense multiple dashes into one dash
       # - replace leading dashes
       # - replace trailing dashes
       # - pad string with zeros if shorter than 3 characters
@@ -48,6 +49,7 @@ module Msgtrail
             .gsub(/\.*/, '')
             .slice(0..62)
             .gsub(/[^a-z,0-9,-]/, '-')
+            .gsub(/-/, '-')
             .gsub(/\A-*/, '')
             .gsub(/-*\Z/, '')
             .ljust(3, '0')
