@@ -45,7 +45,7 @@ module Msgtrail
     end
 
     def track(event, sub_event = nil)
-      "<img src=\"#{self.config.settings.domain_matter.tracking_pixel_url}?e=#{event}&se=#{sub_event}\" width=\"1\" height=\"1\"/>"
+      "<img src=\"#{self.config.settings.domain_matter.tracking_pixel_url}?e=#{event}&se=#{sub_event}\" width=\"1\" height=\"1\" alt=\".\"/>"
     end
 
     # Offer shortcut `cfg` to `settings.config` for use inside ERBs
