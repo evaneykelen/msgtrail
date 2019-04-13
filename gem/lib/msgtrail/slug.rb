@@ -12,7 +12,7 @@ module Msgtrail
     def self.slugify(title)
       URI.escape(title)
          .gsub(/%[0-9A-F]{2}/, '-')
-         .gsub(/-/, '-')
+         .gsub(/-+/, '-')
          .downcase
     end
 
@@ -49,7 +49,7 @@ module Msgtrail
             .gsub(/\.*/, '')
             .slice(0..62)
             .gsub(/[^a-z,0-9,-]/, '-')
-            .gsub(/-/, '-')
+            .gsub(/-+/, '-')
             .gsub(/\A-*/, '')
             .gsub(/-*\Z/, '')
             .ljust(3, '0')
