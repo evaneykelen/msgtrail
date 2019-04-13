@@ -1,5 +1,9 @@
 ### Changelog
 
+##### Version 0.8.0
+
+- Remove old packages (trims gem size).
+
 ##### Version 0.7.0
 
 - Add `track()` helper. Use for example `<%= track("index") %>` or `<%= track("article", article[:slug]) %>` to add a 1x1 pixel image using the following format: `"<img src=\"#{self.config.settings.domain_matter.tracking_pixel_url}?e=#{event}&se=#{sub_event}\" width=\"1\" height=\"1\" alt=\".\"/>"`. The `tracking_pixel_url` setting must be added to the `domain_matter` section in `config.json`. The URL should point to a (transparent) tracking pixel e.g. hosted on AWS CloudFront/S3.
