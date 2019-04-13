@@ -8,6 +8,7 @@ module Msgtrail
       self.article = {}
       self.config = config
       self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+      self.theme_directory = File.join(config.working_directory, config.settings.file_matter.theme_directory)
       begin
         self.layout = File.read(layout_filepath)
       rescue
@@ -41,6 +42,10 @@ module Msgtrail
     def render_partial(partial_filename, variables)
       partial_filepath = File.join(self.theme_directory, "_#{partial_filename}.html.erb")
       PartialRenderer.new(partial_filepath, variables, self.config).render
+    end
+
+    def track(event, sub_event = nil)
+      "<img src=\"#{self.config.settings.domain_matter.tracking_pixel_url}?e=#{event}&se=#{sub_event}\" width=\"1\" height=\"1\"/>"
     end
 
     # Offer shortcut `cfg` to `settings.config` for use inside ERBs

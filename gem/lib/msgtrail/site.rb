@@ -31,13 +31,11 @@ module Msgtrail
         template_filepath = File.join(self.theme_directory, page[:template])
         if page[:iterator_subject] == false
           renderer = PageRenderer.new(layout_filepath, template_filepath, self.config)
-          renderer.theme_directory = self.theme_directory
           renderer.articles = articles
           write_article_directory_and_file(page, renderer)
         else
           articles.each do |article|
             renderer = PageRenderer.new(layout_filepath, template_filepath, self.config)
-            renderer.theme_directory = theme_directory
             renderer.article = article
             write_article_directory_and_file(page, renderer, article[:slug])
           end
