@@ -28,11 +28,11 @@ Here is how creating and publishing a new blog article works:
 3. Invoke `msgtrail {path-to-your-blog-directory}` from the command line.
 4. Upload/sync the output of the `msgtrail` command to e.g. AWS S3 or your static hosting provider of choice.
 
-Instead of using a Markdown article you can also add a reference to a GitHub Gist to `blog.json` or a reference to one or more tweets.
+Besides a local Markdown article you can also use a GitHub Gist or Tweet as an "input source" for a blog article.
 
 The output of the `msgtrail` command is based on a set of simple HTML templates which use Ruby's `ERB` templating system.
 
-The standard theme contains a blog index page, archive, and Atom feed.
+The standard theme contains a blog index page, an archive page, and an Atom feed.
 
 ### Ingredients
 
@@ -42,7 +42,7 @@ You need three ingredients to publish a blog:
 2. You need a local copy of the blog theme.
 3. You need a place to host the output (static HTML files).
 
-This README covers only steps 1 and 2.
+This README only covers steps 1 and 2.
 
 ### Installing MsgTrail
 
@@ -52,8 +52,8 @@ Type `msgtrail` without arguments to display its version and usage hint:
 
 ```
 >msgtrail
-exe/msgtrail version 0.2.0
-Usage: exe/msgtrail {theme-directory-name}
+Version: 0.9.0
+Usage: msgtrail {theme-directory-name}
 ```
 
 ### Downloading theme
