@@ -8,7 +8,7 @@ module Msgtrail
     TWITTER_API_STATUS_ENDPOINT = "https://api.twitter.com/1.1/statuses/show.json?id=%s&tweet_mode=extended".freeze
     TWITTER_AUTH_BODY           = 'grant_type=client_credentials'.freeze
     EXPECTED_TOKEN_TYPE         = 'bearer'.freeze
-    TWITTER_STATUS_ENDPOINT     = "https://twitter.com/statuses/%s".freeze
+    TWITTER_STATUS_ENDPOINT     = "https://twitter.com/i/web/status/%s".freeze
 
     def self.tweet_bodies(tweet_ids)
       tweet_ids.map { |tweet_id| fetch(tweet_id) }
@@ -46,7 +46,7 @@ module Msgtrail
     # There seem to be two ways to get to any tweet by its ID:
     # 1. https://twitter.com/i/web/status/{id}
     # 2. https://twitter.com/statuses/#{id}
-    # Using latter method.
+    # Using former method which seems to work best on desktop and mobile.
     def self.full_tweet_text(access_token, tweet_id)
       url = TWITTER_API_STATUS_ENDPOINT % tweet_id
       begin
