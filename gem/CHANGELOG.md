@@ -1,5 +1,13 @@
 ### Changelog
 
+##### Version 0.9.1
+
+- Fix link to tweets on mobile devices
+
+##### Version 0.9.0
+
+- Condense multiple dashes in slugs into single dash
+
 ##### Version 0.8.0
 
 - Remove old packages (trims gem size).
