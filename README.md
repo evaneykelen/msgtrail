@@ -30,7 +30,7 @@ Here is how creating and publishing a new blog article works:
 
 Besides a local Markdown article you can also use a GitHub Gist or Tweet as an "input source" for a blog article.
 
-The output of the `msgtrail` command is based on a set of simple HTML templates which use Ruby's `ERB` templating system.
+The output of the `msgtrail` command is based on a set of simple HTML templates which use Ruby's ERB templating system.
 
 The standard theme contains a blog index page, an archive page, and an Atom feed.
 
@@ -52,7 +52,7 @@ Type `msgtrail` without arguments to display its version and usage hint:
 
 ```
 >msgtrail
-Version: 0.9.0
+Version: 0.9.1
 Usage: msgtrail {theme-directory-name}
 ```
 
