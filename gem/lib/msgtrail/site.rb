@@ -14,13 +14,13 @@ module Msgtrail
       begin
         manifest = File.read(filepath)
       rescue
-        puts("Can't find site manifest '#{filepath}'")
+        puts("Can't find site manifest '#{filepath}' (#{$!})")
         exit(2)
       end
       begin
         self.pages = MultiJson.load(manifest, symbolize_keys: true)
       rescue
-        puts("Invalid JSON in '#{filepath}'")
+        puts("Invalid JSON in '#{filepath}' (#{$!})")
         exit(2)
       end
     end
@@ -49,7 +49,7 @@ module Msgtrail
       begin
         FileUtils.mkdir_p(article_directory)
       rescue
-        puts("Can't create '#{article_directory}'")
+        puts("Can't create '#{article_directory}' (#{$!})")
         exit(2)
       end
       # Create file
@@ -57,7 +57,7 @@ module Msgtrail
       begin
         File.write(index_filepath, renderer.render)
       rescue
-        puts("Can't write '#{index_filepath}'")
+        puts("Can't write '#{index_filepath}' (#{$!})")
         exit(2)
       end
       puts("Created '#{index_filepath}'")

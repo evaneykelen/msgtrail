@@ -26,13 +26,13 @@ module Msgtrail
         url = GIST_API_ENDPOINT % gist_id
         result = HTTP.get(url)
       rescue
-        puts("Can't access '#{url}'")
+        puts("Can't access '#{url}' (#{$!})")
         exit(2)
       end
       begin
         json = MultiJson.load(result.to_s, symbolize_keys: true)
       rescue
-        puts("Invalid JSON from '#{url}'")
+        puts("Invalid JSON from '#{url}' (#{$!})")
         exit(2)
       end
       json

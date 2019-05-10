@@ -12,13 +12,13 @@ module Msgtrail
         filepath = File.join(self.config.working_directory, self.config.settings.file_matter.blog_manifest_file)
         manifest = File.read(filepath)
       rescue
-        puts("Can't find blog manifest '#{filepath}'")
+        puts("Can't find blog manifest '#{filepath}' (#{$!})")
         exit(2)
       end
       begin
         self.articles = MultiJson.load(manifest, symbolize_keys: true)
       rescue
-        puts("Invalid JSON in '#{filepath}'")
+        puts("Invalid JSON in '#{filepath}' (#{$!})")
         exit(2)
       end
     end
@@ -35,7 +35,7 @@ module Msgtrail
         FileUtils.mkdir(directory)
         puts("Created '#{directory}'")
       rescue
-        puts("Can't create '#{directory}'")
+        puts("Can't create '#{directory}' (#{$!})")
       end
     end
 

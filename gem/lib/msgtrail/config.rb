@@ -11,13 +11,13 @@ module Msgtrail
         filepath = File.join(working_directory, CONFIG_FILE)
         config = File.read(filepath)
       rescue
-        puts("Can't find '#{filepath}'")
+        puts("Can't find '#{filepath}' (#{$!})")
         exit(2)
       end
       begin
         self.settings = MultiJson.load(config, symbolize_keys: true, object_class: OpenStruct)
       rescue
-        puts("Invalid JSON in '#{filepath}'")
+        puts("Invalid JSON in '#{filepath}' (#{$!})")
         exit(2)
       end
     end

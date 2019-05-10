@@ -14,6 +14,7 @@ require 'msgtrail/twitter'
 require 'multi_json'
 require 'ostruct'
 require 'redcarpet'
+require 'redcarpet/render_strip'
 require 'tilt/erb'
 require 'uri'
 

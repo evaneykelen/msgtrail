@@ -1,5 +1,10 @@
 ### Changelog
 
+##### Version 0.9.2
+
+- Add details to error messages
+- Add plaintext rendering
+
 ##### Version 0.9.1
 
 - Fix link to tweets on mobile devices

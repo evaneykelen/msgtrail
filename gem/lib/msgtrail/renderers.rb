@@ -2,23 +2,24 @@ module Msgtrail
 
   class PageRenderer
 
-    attr_accessor :article, :articles, :config, :layout, :markdown, :template, :theme_directory
+    attr_accessor :article, :articles, :config, :layout, :markdown, :plaintext, :template, :theme_directory
 
     def initialize(layout_filepath, template_filepath, config)
       self.article = {}
       self.config = config
       self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+      self.plaintext = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
       self.theme_directory = File.join(config.working_directory, config.settings.file_matter.theme_directory)
       begin
         self.layout = File.read(layout_filepath)
       rescue
-        puts("Can't find '#{layout_filepath}'")
+        puts("Can't find '#{layout_filepath}' (#{$!})")
         exit(2)
       end
       begin
         self.template = File.read(template_filepath)
       rescue
-        puts("Can't find '#{template_filepath}'")
+        puts("Can't find '#{template_filepath}' (#{$!})")
         exit(2)
       end
     end
@@ -69,17 +70,18 @@ module Msgtrail
 
   class PartialRenderer
 
-    attr_accessor :config, :markdown, :partial, :variables
+    attr_accessor :config, :markdown, :partial, :plaintext, :variables
 
     def initialize(partial_filepath, variables, config)
       begin
         self.partial = File.read(partial_filepath)
       rescue
-        puts("Can't find '#{partial_filepath}'")
+        puts("Can't find '#{partial_filepath}' (#{$!})")
         exit(2)
       end
       self.config = config
       self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+      self.plaintext = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
       self.variables = variables
     end
 

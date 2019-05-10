@@ -31,13 +31,13 @@ module Msgtrail
                      .headers(CONTENT_TYPE_HEADER)
                      .post(TWITTER_API_OAUTH_ENDPOINT, body: TWITTER_AUTH_BODY)
       rescue
-        puts("Failed to authenticate with Twitter API")
+        puts("Failed to authenticate with Twitter API (#{$!})")
         exit(2)
       end
       begin
         json = MultiJson.load(result.to_s, symbolize_keys: true)
       rescue
-        puts("Invalid JSON from '#{TWITTER_API_OAUTH_ENDPOINT}'")
+        puts("Invalid JSON from '#{TWITTER_API_OAUTH_ENDPOINT}' (#{$!})")
         exit(2)
       end
       EXPECTED_TOKEN_TYPE == json[:token_type] ? json[:access_token] : nil
@@ -53,13 +53,13 @@ module Msgtrail
         result = HTTP.auth(POST_AUTHENTICATION % access_token)
                      .get(url)
       rescue
-        puts("Failed to get tweet from '#{url}'")
+        puts("Failed to get tweet from '#{url}' (#{$!})")
         exit(2)
       end
       begin
         json = MultiJson.load(result.to_s, symbolize_keys: true)
       rescue
-        puts("Invalid JSON from '#{url}'")
+        puts("Invalid JSON from '#{url}' (#{$!})")
         exit(2)
       end
       {

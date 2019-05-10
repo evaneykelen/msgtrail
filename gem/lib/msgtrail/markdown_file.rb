@@ -6,7 +6,7 @@ module Msgtrail
       begin
         body = File.read(filepath)
       rescue
-        puts("Can't find file '#{filepath}'")
+        puts("Can't find file '#{filepath}' (#{$!})")
         exit(2)
       end
       [
