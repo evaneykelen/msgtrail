@@ -1,6 +1,27 @@
+module RenderHelper
+
+  def now_as_rfc3339
+    DateTime.now.rfc3339
+  end
+
+  def as_rfc3339(published, updated = nil)
+    updated.nil? ? datestamp = published : datestamp = updated
+    ymd = datestamp[:date].split(/\D/).map(&:to_i)
+    hm  = datestamp[:time].split(/\D/).map(&:to_i)
+    DateTime.new(ymd[0], ymd[1], ymd[2], hm[0], hm[1], 0, datestamp[:utc_offset]).rfc3339
+  end
+
+  def xml_safe(str)
+    str.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;").gsub("'", "&apos;")
+  end
+
+end
+
 module Msgtrail
 
   class PageRenderer
+
+    include RenderHelper
 
     attr_accessor :article, :articles, :config, :layout, :markdown, :plaintext, :template, :theme_directory
 
@@ -58,17 +79,11 @@ module Msgtrail
       end
     end
 
-    def rfc2822_time(date, time)
-      ymd = date.split(/\D/).map(&:to_i)
-      hm = time.split(/\D/).map(&:to_i)
-      Time.new(ymd[0], ymd[1], ymd[2], hm[0], hm[1])
-          .getlocal(cfg.time_matter.utc_offset)
-          .rfc2822
-    end
-
   end
 
   class PartialRenderer
+
+    include RenderHelper
 
     attr_accessor :config, :markdown, :partial, :plaintext, :variables
 

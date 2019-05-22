@@ -55,7 +55,7 @@ module Msgtrail
 
     def generate_article_slugs
       self.articles.each do |article|
-        article[:slug] = Slug.generate(article[:title], article[:date], article[:time])
+        article[:slug] = Slug.generate(article[:title], article[:published][:date], article[:published][:time])
       end
     end
 

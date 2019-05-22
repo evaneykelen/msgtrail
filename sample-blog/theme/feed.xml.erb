@@ -1,15 +1,17 @@
 <% articles.each do |article| %>
-  <item>
-    <title><%= article[:title] %></title>
-    <link><%= cfg.domain_matter.permalink_url % article[:slug] %></link>
-    <description>
+  <entry>
+    <title type="html"><%= xml_safe(article[:title]) %></title>
+    <link href="<%= cfg.domain_matter.permalink_url % article[:slug] %>" rel="alternate" type="text/html" title="<%= xml_safe(article[:title]) %>"/>
+    <published><%= as_rfc3339(article[:published]) %></published>
+    <updated><%= as_rfc3339(article[:published], article[:updated]) %></updated>
+    <id><%= cfg.domain_matter.permalink_url % article[:slug] %></id>
+    <author><name>YOUR NAME</name></author>
+    <content type="html" xml:base="<%= cfg.domain_matter.permalink_url % article[:slug] %>">
       <![CDATA[
         <% article[:bodies].each do |body| %>
           <%= markdown.render(body[:body]) %>
         <% end %>
       ]]>
-    </description>
-    <pubDate><%= rfc2822_time(article[:date], article[:time]) %></pubDate>
-    <guid><%= cfg.domain_matter.permalink_url % article[:slug] %></guid>
-  </item>
+    </content>
+  </entry>
 <% end %>

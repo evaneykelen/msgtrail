@@ -1,20 +1,18 @@
 [
   {
     "title": "First post",
-    "date": "2019-01-02",
-    "time": "23:55",
+    "published": { "date": "2019-01-02", "time": "23:55", "utc_offset": "+02:00" },
+    "updated": { "date": "2019-01-03", "time": "10:00", "utc_offset": "+02:00" },
     "file": "articles/hello-blog.md"
   },
   {
     "title": "Markdown example",
-    "date": "2019-04-07",
-    "time": "21:34",
+    "published": { "date": "2019-04-07", "time": "21:34", "utc_offset": "+02:00" },
     "gist_id": "fd8d3b448ea4c2edec93c34baca44ad4"
   },
   {
     "title": "Writing a programmer-oriented blog engine",
-    "date": "2019-04-06",
-    "time": "13:16",
+    "published": { "date": "2019-04-06", "time": "13:16", "utc_offset": "+02:00" },
     "tweet_ids": [
       1114623023397646337
     ],

@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title><%= [cfg.head_matter.blog_title, cfg.head_matter.blog_sub_title].compact.join(' - ') %></title>
-    <link><%= cfg.domain_matter.site_url %></link>
-    <description><%= cfg.head_matter.blog_sub_title %></description>
-    <language><%= cfg.head_matter.language %></language>
-    <pubDate><%= time = Time.now.getlocal(cfg.time_matter.utc_offset).rfc2822 %></pubDate>
-    <lastBuildDate><%= time %></lastBuildDate>
-    <generator>Msgtrail Static Blog Generator</generator>
-    <atom:link href="<%= cfg.domain_matter.feed_url %>" rel="self" type="application/rss+xml" />
-    <%= yield %>
-  </channel>
-</rss>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <generator uri="https://github.com/evaneykelen/msgtrail">MsgTrail Static Blog Generator</generator>
+  <link href="<%= cfg.domain_matter.feed_url %>" rel="self" type="application/atom+xml"/>
+  <link href="<%= cfg.domain_matter.site_url %>" rel="alternate" type="text/html"/>
+  <updated><%= now_as_rfc3339 %></updated>
+  <id><%= cfg.domain_matter.feed_url %></id>
+  <title type="html"><%= cfg.head_matter.blog_title %></title>
+  <subtitle><%= cfg.head_matter.blog_sub_title %></subtitle>
+  <author><name>YOUR NAME</name></author>
+  <%= yield %>
+</feed>

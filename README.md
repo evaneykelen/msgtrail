@@ -150,9 +150,6 @@ The `msgtrail` command reads its configuration settings from `config.json`:
     "blog_title": "MsgTrail",
     "blog_sub_title": "A blog by Erik van Eykelen",
     "language": "en-us"
-  },
-  "time_matter": {
-    "utc_offset": "+02:00"
   }
 }
 ```
@@ -223,9 +220,9 @@ Inside `article.html.erb` and `index.html.erb` you'll see that it is easy to emb
 
 The `article` variable gets passed to the article partial and made available through a global `variables` hash. Inside `_article.html.erb` you'll see for instance:
 
-`<%= variables[:article][:date] %>`
+`<%= variables[:article][:published][:date] %>`
 
-This line fetches the `:date` value from the `:article` hash. You may add additional variables to the `{ article: article }` hash e.g. `{ article: article, foo: 'bar' }`.
+This line fetches the `:date` value from the `:published` hash, which is part of the `:article` hash. You may add additional variables to the `{ article: article }` hash e.g. `{ article: article, foo: 'bar' }`.
 
 The fact that the word `article` is used three times in `render_partial('article', { article: article })` is not a requirement. The following is also correct: `render_partial('alpha', { bravo: charlie })`, provided you rename the partial to `alpha` and rename the variables accordingly.
 
