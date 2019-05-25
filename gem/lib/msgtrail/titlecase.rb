@@ -75,7 +75,7 @@ module Msgtrail
         word_arr[idx] = word.capitalize                if operand_arr[idx] == :nop
       end
 
-      return word_arr.join(' ')
+      word_arr.join(' ')
     end
 
   end
