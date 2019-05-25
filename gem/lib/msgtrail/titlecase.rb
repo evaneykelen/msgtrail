@@ -1,17 +1,6 @@
 module Msgtrail
   class Titlecase
 
-    SMALL_WORDS = [
-      /\Aa(nd|n|s|t)?\z/,
-      /\Ab(ut|y)\z/,
-      /\Aen\z/,
-      /\Afor\z/,
-      /\Ai(f|n)\z/,
-      /\Ao(f|n|r)\z/,
-      /\At(he|o)\z/,
-      /\Avs?\.?\z/
-    ].freeze
-
     SMALL_WORDS = Regexp.new('\b(a(nd|n|s|t)?|b(ut|y)|en|for|i(f|n)|o(f|n|r)|t(he|o)|vs?\.?)\b').freeze
 
     def self.is_small_word?(word)
