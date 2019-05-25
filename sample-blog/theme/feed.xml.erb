@@ -1,7 +1,7 @@
 <% articles.each do |article| %>
   <entry>
-    <title type="html"><%= xml_safe(article[:title]) %></title>
-    <link href="<%= cfg.domain_matter.permalink_url % article[:slug] %>" rel="alternate" type="text/html" title="<%= xml_safe(article[:title]) %>"/>
+    <title type="html"><%= titlecase(xml_safe(article[:title])) %></title>
+    <link href="<%= cfg.domain_matter.permalink_url % article[:slug] %>" rel="alternate" type="text/html" title="<%= titlecase(xml_safe(article[:title])) %>"/>
     <published><%= as_rfc3339(article[:published]) %></published>
     <updated><%= as_rfc3339(article[:published], article[:updated]) %></updated>
     <id><%= cfg.domain_matter.permalink_url % article[:slug] %></id>
