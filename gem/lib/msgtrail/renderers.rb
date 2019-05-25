@@ -12,7 +12,7 @@ module RenderHelper
   end
 
   def xml_safe(str)
-    str.gsub("&", "&amp;").gsub("<", "&lt;").gsub(">", "&gt;").gsub("\"", "&quot;").gsub("'", "&apos;")
+    ERB::Util.h(str)
   end
 
 end
