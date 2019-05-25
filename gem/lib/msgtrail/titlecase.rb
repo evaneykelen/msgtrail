@@ -12,10 +12,10 @@ module Msgtrail
       /\Avs?\.?\z/
     ].freeze
 
-    RE = Regexp.new('\b(a(nd|n|s|t)?|b(ut|y)|en|for|i(f|n)|o(f|n|r)|t(he|o)|vs?\.?)\b').freeze
+    SMALL_WORDS = Regexp.new('\b(a(nd|n|s|t)?|b(ut|y)|en|for|i(f|n)|o(f|n|r)|t(he|o)|vs?\.?)\b').freeze
 
     def self.is_small_word?(word)
-      !RE.match(word).nil?
+      !SMALL_WORDS.match(word).nil?
     end
 
     # "__foo" => "__Foo"
