@@ -5,8 +5,8 @@
   <link href="<%= cfg.domain_matter.site_url %>" rel="alternate" type="text/html"/>
   <updated><%= now_as_rfc3339 %></updated>
   <id><%= cfg.domain_matter.feed_url %></id>
-  <title type="html"><%= cfg.head_matter.blog_title %></title>
-  <subtitle><%= cfg.head_matter.blog_sub_title %></subtitle>
+  <title type="html"><%= titlecase(cfg.head_matter.blog_title) %></title>
+  <subtitle><%= titlecase(cfg.head_matter.blog_sub_title) %></subtitle>
   <author><name>YOUR NAME</name></author>
   <%= yield %>
 </feed>

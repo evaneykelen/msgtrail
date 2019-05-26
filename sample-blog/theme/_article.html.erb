@@ -3,7 +3,7 @@
 </p>
 
 <h3 class="mb-3">
-  <a href="/articles/<%= variables[:article][:slug] %>"><%= variables[:article][:title] %></a>
+  <a href="/articles/<%= variables[:article][:slug] %>"><%= titlecase(variables[:article][:title]) %></a>
 </h3>
 
 <% variables[:article][:bodies].each do |body| %>

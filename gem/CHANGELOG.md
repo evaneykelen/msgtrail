@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.9.4
+
+- Add `titlecase` method based on [John Gruber's title casing](https://daringfireball.net/2008/08/title_case_update) rules.
+
 ## Version 0.9.3
 
 - Make published and updated date/time datestamps explicit

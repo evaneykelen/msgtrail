@@ -1,14 +1,18 @@
 module RenderHelper
 
-  def now_as_rfc3339
-    DateTime.now.rfc3339
-  end
-
   def as_rfc3339(published, updated = nil)
     updated.nil? ? datestamp = published : datestamp = updated
     ymd = datestamp[:date].split(/\D/).map(&:to_i)
     hm  = datestamp[:time].split(/\D/).map(&:to_i)
     DateTime.new(ymd[0], ymd[1], ymd[2], hm[0], hm[1], 0, datestamp[:utc_offset]).rfc3339
+  end
+
+  def now_as_rfc3339
+    DateTime.now.rfc3339
+  end
+
+  def titlecase(word)
+    Msgtrail::Titlecase.titlecase(word)
   end
 
   def xml_safe(str)

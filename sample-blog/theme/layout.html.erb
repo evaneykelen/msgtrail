@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title><%= [cfg.head_matter.blog_title, cfg.head_matter.blog_sub_title, article[:title]].compact.join(' - ') %></title>
+    <title><%= [cfg.head_matter.blog_title, cfg.head_matter.blog_sub_title, titlecase(article[:title])].compact.join(' - ') %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" media="all" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
