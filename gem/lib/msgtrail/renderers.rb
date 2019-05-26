@@ -32,7 +32,7 @@ module Msgtrail
     def initialize(layout_filepath, template_filepath, config)
       self.article = {}
       self.config = config
-      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true, strikethrough: true)
       self.plaintext = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
       self.theme_directory = File.join(config.working_directory, config.settings.file_matter.theme_directory)
       begin
@@ -99,7 +99,7 @@ module Msgtrail
         exit(2)
       end
       self.config = config
-      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true)
+      self.markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, fenced_code_blocks: true, strikethrough: true)
       self.plaintext = Redcarpet::Markdown.new(Redcarpet::Render::StripDown)
       self.variables = variables
     end
