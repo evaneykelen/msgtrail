@@ -4,7 +4,7 @@ module Msgtrail
     SMALL_WORDS = Regexp.new('\b(a(nd|n|s|t)?|b(ut|y)|en|for|i(f|n)|o(f|n|r)|t(he|o)|vs?\.?)\b').freeze
 
     def self.is_small_word?(word)
-      !SMALL_WORDS.match(word).nil?
+      SMALL_WORDS.match(word)
     end
 
     # "__foo" => "__Foo"
@@ -19,19 +19,20 @@ module Msgtrail
 
     # before/after => Before/After
     def self.upcase_word_with_slashes(word)
-      word.split('/').map { |part| part.capitalize }.join('/')
+      word.split('/').map(&:capitalize).join('/')
     end
 
     def self.titlecase(str)
-      return if (str || '').strip.empty?
+      # Replace tabs by single space
+      # Replace weird spaces by regular space
+      str = (str || '').gsub(/\t/, ' ').gsub("\u{2011}", ' ').strip
+      return if str.empty?
 
       # Downcase an all-upcase sentence
       str.downcase! if str.scan(/[A-Z]|\s|\W/).length == str.length
 
-      # Replace tabs by single space
-      # Replace weird spaces by regular space
       # Split sentence at space boundaries
-      word_arr = str.gsub(/\t/, ' ').gsub("\u{2011}", ' ').split(' ')
+      word_arr = str.split(' ')
 
       # Initialize operand array
       operand_arr = Array.new(word_arr.size, :nop)
