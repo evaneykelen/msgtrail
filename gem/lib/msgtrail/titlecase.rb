@@ -35,7 +35,7 @@ module Msgtrail
       word_arr = str.split(' ')
 
       # Initialize operand array
-      operand_arr = Array.new(word_arr.size, :nop)
+      operand_arr = Array.new(word_arr.size, :capitalize)
 
       word_arr.each_with_index do |word, idx|
         # Don't capitalize small words...
@@ -62,7 +62,7 @@ module Msgtrail
         word_arr[idx] = upcase_first_real_letter(word) if operand_arr[idx] == :upcase_later
         word_arr[idx] = upcase_word_with_dashes(word)  if operand_arr[idx] == :upcase_dashed
         word_arr[idx] = upcase_word_with_slashes(word) if operand_arr[idx] == :upcase_slashed
-        word_arr[idx] = word.capitalize                if operand_arr[idx] == :nop
+        word_arr[idx] = word.capitalize                if operand_arr[idx] == :capitalize
       end
 
       word_arr.join(' ')
