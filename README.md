@@ -1,3 +1,6 @@
+![Gem Version](https://img.shields.io/gem/v/msgtrail.svg) ![License](https://img.shields.io/github/license/evaneykelen/msgtrail.svg)
+![Last Commit](https://img.shields.io/github/last-commit/evaneykelen/msgtrail.svg)
+
 ## MsgTrail
 
 **MsgTrail is a blog publication tool.**
