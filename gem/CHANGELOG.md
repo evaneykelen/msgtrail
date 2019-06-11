@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.9.6
+
+- Add support for favicon.ico ('theme/favicon.ico' will be copied to 'blog/favicon.ico').
+
 ## Version 0.9.5
 
 - Add support for ~~strikethrough~~.
