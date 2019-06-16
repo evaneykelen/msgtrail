@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    msgtrail (0.9.7)
+    msgtrail (0.9.8)
 
 GEM
   remote: https://rubygems.org/
@@ -47,4 +47,4 @@ DEPENDENCIES
   tilt (~> 2.0)
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

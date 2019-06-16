@@ -12,6 +12,7 @@ module RenderHelper
   end
 
   def titlecase(word)
+    return if word.to_s.strip.empty?
     Nice.title(word)
   end
 
