@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.9.6
+
+- Replace internal title case code for [Nicetitle gem](https://github.com/evaneykelen/nicetitle/).
+
 ## Version 0.9.5
 
 - Add support for ~~strikethrough~~.

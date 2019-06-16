@@ -12,7 +12,7 @@ module RenderHelper
   end
 
   def titlecase(word)
-    Msgtrail::Titlecase.titlecase(word)
+    Nice.title(word)
   end
 
   def xml_safe(str)
