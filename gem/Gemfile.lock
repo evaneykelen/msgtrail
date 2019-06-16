@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    msgtrail (0.7.0)
+    msgtrail (0.9.7)
 
 GEM
   remote: https://rubygems.org/
@@ -22,6 +22,7 @@ GEM
     http_parser.rb (0.6.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    nicetitle (1.0.1)
     public_suffix (3.0.3)
     rake (10.5.0)
     redcarpet (3.4.0)
@@ -40,6 +41,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   msgtrail!
   multi_json (~> 1.13)
+  nicetitle (~> 1.0.1)
   rake (~> 10.0)
   redcarpet (~> 3.4)
   tilt (~> 2.0)

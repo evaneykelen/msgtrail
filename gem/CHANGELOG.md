@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.9.7
+
+- Re-publish due to rubygems.org issue.
+
 ## Version 0.9.6
 
 - Replace internal title case code for [Nicetitle gem](https://github.com/evaneykelen/nicetitle/).
