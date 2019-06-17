@@ -55,7 +55,7 @@ Type `msgtrail` without arguments to display its version and usage hint:
 
 ```
 >msgtrail
-Version: 0.9.7
+Version: 0.9.9
 Usage: msgtrail {theme-directory-name}
 ```
 
