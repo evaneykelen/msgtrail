@@ -1,8 +1,16 @@
 # Changelog
 
+## Version 0.9.8
+
+- Fix title case bug.
+
+## Version 0.9.7
+
+- Re-publish due to rubygems.org issue.
+
 ## Version 0.9.6
 
-- Add support for favicon.ico ('theme/favicon.ico' will be copied to 'blog/favicon.ico').
+- Replace internal title case code for [Nicetitle gem](https://github.com/evaneykelen/nicetitle/).
 
 ## Version 0.9.5
 
@@ -14,21 +22,21 @@
 
 ## Version 0.9.3
 
-- Make published and updated date/time datestamps explicit
-- Change feed format from RSS to Atom
+- Make published and updated date/time datestamps explicit.
+- Change feed format from RSS to Atom.
 
 ## Version 0.9.2
 
-- Add details to error messages
-- Add plaintext rendering
+- Add details to error messages.
+- Add plaintext rendering.
 
 ## Version 0.9.1
 
-- Fix link to tweets on mobile devices
+- Fix link to tweets on mobile devices.
 
 ## Version 0.9.0
 
-- Condense multiple dashes in slugs into single dash
+- Condense multiple dashes in slugs into single dash.
 
 ## Version 0.8.0
 
@@ -53,4 +61,4 @@
 
 ## Version 0.1.0 - 0.4.0
 
-- Alpha/beta versions
+- Alpha/beta versions.

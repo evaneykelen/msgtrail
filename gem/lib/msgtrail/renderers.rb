@@ -12,7 +12,8 @@ module RenderHelper
   end
 
   def titlecase(word)
-    Msgtrail::Titlecase.titlecase(word)
+    return if word.to_s.strip.empty?
+    Nice.title(word)
   end
 
   def xml_safe(str)
