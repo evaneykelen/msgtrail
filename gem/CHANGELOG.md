@@ -1,5 +1,10 @@
 # Changelog
 
+## Version 1.0.0
+
+- Fix bug with development and runtime dependencies.
+- Consider this version stable enough to become 1.0.
+
 ## Version 0.9.9
 
 - Add support for favicon.ico ('theme/favicon.ico' will be copied to 'blog/favicon.ico').
