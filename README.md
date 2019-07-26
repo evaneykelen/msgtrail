@@ -16,7 +16,7 @@ It is used to manage and publish [this blog](https://www.msgtrail.com/).
 - User interface: command line
 - End result: self-contained HTML
 - Hosting: no (bring your own)
-- Search: no (rudimentary support for Google's `site:` feature)
+- Search: yes
 - Archive page: yes
 - Feed: yes (Atom)
 
@@ -55,7 +55,7 @@ Type `msgtrail` without arguments to display its version and usage hint:
 
 ```
 >msgtrail
-Version: 1.0.0
+Version: 1.0.1
 Usage: msgtrail {theme-directory-name}
 ```
 
