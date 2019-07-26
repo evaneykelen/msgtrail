@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.0.1
+
+- Add full text search to archive page
+
 ## Version 1.0.0
 
 - Fix bug with development and runtime dependencies.

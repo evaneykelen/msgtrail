@@ -1,7 +1,10 @@
 <div class="row my-2">
   <div class="col-12">
-    <% articles.each do |article| %>
-      <div class="px-3 mb-3">
+    <div class="mb-4 px-3">
+      <input type="search" id="search-phrase" class="form-control xform-control-lg" placeholder="Full-text search">
+    </div>
+    <% articles.each_with_index do |article, idx| %>
+      <div id="article-<%= idx %>" class="article px-3 mb-3">
         <div class="form-row">
           <div class="col-12 col-sm-3 col-md-2">
             <a class="small text-muted" href="/articles/<%= article[:slug] %>">
@@ -18,3 +21,57 @@
     <% end %>
   </div>
 </div>
+
+<script>
+
+  document.addEventListener("DOMContentLoaded", function() {
+
+    articles = [
+      <% articles.each do |article| %>
+        <% body = article[:bodies].map { |body| plaintext.render(body[:body]).tr('\\', '') }.join %>
+        `<%= "#{article[:title]}#{body}".gsub(/\"|\n|\r|`/, '').downcase.scan(/.{100}/).join("\n") %>`,
+      <% end %>
+    ];
+
+    // Return array indices for array element matching `query`
+    function findString(arr, query) {
+      result = [];
+      pattern = new RegExp(query, "i");
+      for(i = 0; i < arr.length; i++) {
+        if (arr[i].match(pattern)) result.push(i);
+      }
+      return result;
+    }
+
+    function showArticles() {
+      document.querySelectorAll(".article").forEach(el => {
+        el.classList.remove("d-none");
+        el.classList.add("d-block")
+      });
+    }
+
+    function hideArticles() {
+      document.querySelectorAll(".article").forEach(el => {
+        el.classList.remove("d-block");
+        el.classList.add("d-none")
+      });
+    }
+
+    document.getElementById("search-phrase").addEventListener("keyup", function() {
+      query = this.value.replace(/\s+/g, "");
+      if (query.length === 0) {
+        showArticles();
+      } else {
+        hideArticles();
+        result = findString(articles, query);
+        if (result.length > 0) {
+          for(i = 0; i < result.length; i++) {
+            document.getElementById("article-" + result[i]).classList.add("d-block");
+          }
+        }
+      }
+    });
+
+  });
+
+</script>
