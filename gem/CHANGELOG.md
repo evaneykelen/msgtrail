@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.0.2
+
+- Ignore tracker if settings are missing
+
 ## Version 1.0.1
 
 - Add full text search to archive page
