@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.0.3
+
+- Add option to publish files to root of publication from 'files' directory
+
 ## Version 1.0.2
 
 - Ignore tracker if settings are missing

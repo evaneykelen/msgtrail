@@ -63,13 +63,11 @@ module Msgtrail
       puts("Created '#{index_filepath}'")
     end
 
-    def copy_favicon
-      favicon_filepath = File.join(self.theme_directory, 'favicon.ico')
-      begin
-        FileUtils.cp(favicon_filepath, self.blog_directory)
-        puts "Copied '#{favicon_filepath}' to '#{self.blog_directory}'"
-      rescue
-        puts("Skipped '#{favicon_filepath}'")
+    def copy_files
+      fp = File.join(self.theme_directory, 'files/*')
+      Dir.glob(fp).each do|f|
+        FileUtils.cp(f, self.blog_directory)
+        puts "Copied '#{fp}' to '#{self.blog_directory}'"
       end
     end
 

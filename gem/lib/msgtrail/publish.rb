@@ -39,7 +39,7 @@ module Msgtrail
 
       site.fetch_site_pages
       site.generate_articles(blog.articles)
-      site.copy_favicon
+      site.copy_files
 
       exit(0)
     end
