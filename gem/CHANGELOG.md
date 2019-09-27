@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.0.4
+
+- Fix full text search % escape issue
+
 ## Version 1.0.3
 
 - Add option to publish files to root of publication from 'files' directory
