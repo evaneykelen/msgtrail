@@ -29,7 +29,7 @@
     articles = [
       <% articles.each do |article| %>
         <% body = article[:bodies].map { |body| plaintext.render(body[:body]).tr('\\', '') }.join %>
-        `<%= "#{article[:title]}#{body}".gsub(/\"|\n|\r|\%|`|\$|\{|\}/, '').downcase.scan(/.{100}/).join("\n") %>`,
+        `<%= "#{article[:title]}#{body}".gsub(/\"|\n|\r|\%|`|\$|\{|\}/, '').downcase.scan(/.{1,100}/m).join("\n") %>`,
       <% end %>
     ];
 
