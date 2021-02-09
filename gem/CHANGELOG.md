@@ -1,5 +1,13 @@
 # Changelog
 
+## Version 1.0.6
+
+- Update dependencies
+
+## Version 1.0.5
+
+- Update dependencies
+
 ## Version 1.0.4
 
 - Fix full text search % escape issue
