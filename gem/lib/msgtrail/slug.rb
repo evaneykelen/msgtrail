@@ -10,7 +10,7 @@ module Msgtrail
 
     # Create URL-safe slug
     def self.slugify(title)
-      URI.escape(title)
+      URI.encode_www_form_component(title)
          .gsub(/%[0-9A-F]{2}/, '-')
          .gsub(/-+/, '-')
          .downcase

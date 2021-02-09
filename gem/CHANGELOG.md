@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 1.0.7
+
+- Replace deprecated URI.escape method
+
 ## Version 1.0.6
 
 - Update dependencies
